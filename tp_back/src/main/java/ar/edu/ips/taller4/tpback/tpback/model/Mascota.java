@@ -1,26 +1,24 @@
 package ar.edu.ips.taller4.tpback.tpback.model;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-import lombok.Data;
-
-@Data
 @Entity
-public class User {
+public class Mascota {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private String usuario;
-	
-	private String clave;
+	private String nombre;
 
-	@Embedded
-    private Direccion direccion;
+	private String alimento;
 
+	private Boolean vacunas;
+
+	@ManyToOne
+	private Persona persona;
 }
