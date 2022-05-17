@@ -9,7 +9,7 @@ import lombok.Data;
 public class Animal {
 
 	private Integer cantidadPatas;
-	
+
 	private Boolean vuela;
 	
 }

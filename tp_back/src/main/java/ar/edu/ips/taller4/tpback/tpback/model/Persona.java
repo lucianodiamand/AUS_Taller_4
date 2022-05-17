@@ -28,8 +28,8 @@ public class Persona {
 	@ManyToOne
 	private Vehiculo vehiculo;
 
-	@OneToMany(mappedBy = "persona")
-	// @JoinColumn(name = "persona_id")
-	private Set<Mascota> mascotas;
+//	@OneToMany(mappedBy = "persona")
+//	// @JoinColumn(name = "persona_id")
+//	private Set<Mascota> mascotas;
 
 }
