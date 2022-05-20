@@ -1,5 +1,7 @@
 package ar.edu.ips.taller4.tpback.tpback.services.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User guardarUsuario(User usuario) {
 		return repository.save(usuario);
+	}
+
+	@Override
+	public List<User> findAll() {
+		return repository.findAll();
+	}
+
+	@Override
+	public void delete(Long id) {
+		repository.deleteById(id);
 	}
 
 }

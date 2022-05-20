@@ -16,4 +16,12 @@ export class UserService {
   guardarUsuario(user: User): Observable<User> {
     return this.http.post<User>(`${this.url}/user`, user);
   }
+
+  obtenerUsuarios(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.url}/user`);
+  }
+
+  borrarUsuario(user: User): Observable<void> {
+    return this.http.delete<void>(`${this.url}/user/${user.id}`);
+  }
 }

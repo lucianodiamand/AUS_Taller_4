@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable, of } from 'rxjs';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -12,6 +13,8 @@ export class UserComponent implements OnInit {
 
   form: FormGroup;
 
+  users$: Observable<User[]> = of([]);
+
   constructor(
     private builder: FormBuilder,
     private service: UserService
@@ -23,16 +26,21 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.users$ = this.service.obtenerUsuarios();
   }
 
   enviarDatos(): void {
     const usuario = this.form.get('usuario')?.value;
     const clave = this.form.get('clave')?.value;
-    const user: User = new User(usuario, clave);
+    const user: User = new User(usuario, clave, null);
     this.service.guardarUsuario(user).subscribe((result) => {
-      console.log(result);
+      this.users$ = this.service.obtenerUsuarios();
     });
-  
   }
 
+  borrarUsuario(user: User): void {
+    this.service.borrarUsuario(user).subscribe((result) => {
+      this.users$ = this.service.obtenerUsuarios();
+    });
+  }
 }
