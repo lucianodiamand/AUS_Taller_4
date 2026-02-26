@@ -1,0 +1,5 @@
+#+title: Curso 2026
+#+author: Luciano Daniel Diamand
+#+email: ldiamand@ips.edu.ar
+
+* Curso 2026
