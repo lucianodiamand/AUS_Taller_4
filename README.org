@@ -1,4 +1,4 @@
-#+title: Curso 2026
+#+title: Taller 4 2026
 #+author: Luciano Daniel Diamand
 #+email: ldiamand@ips.edu.ar
 
