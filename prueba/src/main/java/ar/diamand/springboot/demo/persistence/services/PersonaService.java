@@ -1,6 +1,7 @@
 package ar.diamand.springboot.demo.persistence.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,9 @@ class PersonaService implements IPersonaService {
 
   public List<Persona> sayHello() {
     return repo.findAll();
+  }
+
+  public Optional<Persona> findById(Long id) {
+    return repo.findById(id);
   }
 }
