@@ -1,14 +1,17 @@
 package ar.diamand.springboot.demo.persistence.model;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Entity
 @Data
-publi class Documento {
+public class Documento {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,4 +21,6 @@ publi class Documento {
 
   private String numero;
 
+  @OneToMany(mappedBy = "documento")
+  private List<Persona> personas;
 }

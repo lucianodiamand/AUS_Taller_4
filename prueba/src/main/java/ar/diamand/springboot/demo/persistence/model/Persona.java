@@ -26,7 +26,7 @@ public class Persona {
 
   private String nombre;
 
-  @Column(name = "lastName", unique = true, nullable = false)
+  @Column(name = "lastName", nullable = false)
   private String apellido;
 
   @Embedded
@@ -46,6 +46,6 @@ public class Persona {
   })
   private Direccion direccionTrabajo;
 
-  @ManyToOne
+  @ManyToOne()
   private Documento documento;
 }

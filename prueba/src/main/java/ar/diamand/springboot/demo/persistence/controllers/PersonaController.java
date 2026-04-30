@@ -1,6 +1,7 @@
 package ar.diamand.springboot.demo.persistence.controllers;
 
 import ar.diamand.springboot.demo.persistence.model.Persona;
+import ar.diamand.springboot.demo.persistence.repositories.IPersonaRepository;
 import ar.diamand.springboot.demo.persistence.services.IPersonaService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,6 +24,9 @@ public class PersonaController {
     @Autowired
     private IPersonaService service;
 
+    @Autowired
+    private IPersonaRepository repo;
+
     @GetMapping
     public List<Persona> getPersonas() {
       return service.sayHello();
@@ -30,7 +34,12 @@ public class PersonaController {
 
     @GetMapping("/{id}")
     public Optional<Persona> getPersonas(@PathVariable("id") Long id) {
-      return service.findById(id);
+      return repo.findById(id);
+    }
+
+    @GetMapping("/nombre/{nombre}")
+    public List<Persona> getPersonas(@PathVariable("nombre") String nombre) {
+      return repo.findByNombreLike(nombre + "%");
     }
 
     @PostMapping()
