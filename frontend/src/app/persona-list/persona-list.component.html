@@ -5,3 +5,9 @@
     {{ persona.id }}: {{ persona.nombre }} {{ persona.apellido }}
   </li>
 </ul>
+
+<form [formGroup]="personaForm">
+  <p>Nombre: <input type="text" formControlName="nombre" /></p>
+  <p>Apellido: <input type="text" formControlName="apellido" /></p>
+  <p><button (click)="guardar()">Guardar</button></p>
+</form>

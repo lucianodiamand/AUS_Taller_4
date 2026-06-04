@@ -12,4 +12,11 @@ export class PersonaService {
   getPersonas(): Observable<PersonaDto[]> {
     return this.http.get<PersonaDto[]>("http://localhost:8080/persona");
   }
+
+  savePersona(persona: PersonaDto): Observable<PersonaDto[]> {
+    return this.http.post<PersonaDto[]>(
+      "http://localhost:8080/persona",
+      persona
+    );
+  }
 }
