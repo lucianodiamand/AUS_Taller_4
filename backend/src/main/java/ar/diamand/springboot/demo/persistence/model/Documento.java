@@ -21,6 +21,4 @@ public class Documento {
 
   private String numero;
 
-  @OneToMany(mappedBy = "documento")
-  private List<Persona> personas;
 }

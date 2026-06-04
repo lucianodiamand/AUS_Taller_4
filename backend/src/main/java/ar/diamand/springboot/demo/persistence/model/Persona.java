@@ -29,23 +29,4 @@ public class Persona {
   @Column(name = "lastName", nullable = false)
   private String apellido;
 
-  @Embedded
-  private Direccion direccion;
-
-  @Embedded
-  @AttributeOverrides({
-    @AttributeOverride(
-      name = "calle", column = @Column(name = "calle_trabajo")
-    ),
-    @AttributeOverride(
-      name = "altura", column = @Column(name = "altura_trabajo")
-    ),
-    @AttributeOverride(
-      name = "cp", column = @Column(name = "cp_trabajo")
-    )
-  })
-  private Direccion direccionTrabajo;
-
-  @ManyToOne()
-  private Documento documento;
 }

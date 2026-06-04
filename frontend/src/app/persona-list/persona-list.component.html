@@ -1,0 +1,7 @@
+<p>Listado personas</p>
+
+<ul>
+  <li *ngFor="let persona of personas$ | async">
+    {{ persona.id }}: {{ persona.nombre }} {{ persona.apellido }}
+  </li>
+</ul>
